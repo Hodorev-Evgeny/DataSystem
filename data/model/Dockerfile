@@ -1,0 +1,17 @@
+FROM postgres
+
+LABEL authors="Evgeny"
+
+ARG DB_NAME
+ARG DB_USER
+ARG DB_PASSWORD
+
+ENV POSTGRES_DB=${DB_NAME}
+ENV POSTGRES_USER=${DB_USER}
+ENV POSTGRES_PASSWORD=${DB_PASSWORD}
+
+COPY . /db
+
+RUN ln -s /db/backup.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 5432

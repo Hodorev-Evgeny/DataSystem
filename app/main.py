@@ -1,11 +1,13 @@
+import flask
 from sqlalchemy import text
 from data.model.__init__ import *
 
 
 Session = get_session()
 
+
 #check db_session
-stock = Stocks(
+"""stock = Stocks(
     ticker="AAPL",
     name="Apple Inc.",
     sector="Technology",
@@ -26,4 +28,4 @@ with Session() as session:
 
 ans = session.query(Stocks).all()
 for stock in ans:
-    print(stock)
+    print(stock)"""
